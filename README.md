@@ -1,5 +1,7 @@
 # test metaverse project
 
+# demo: https://test-metaverse.netlify.app/
+
 # to start
 
 ```
