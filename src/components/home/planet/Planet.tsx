@@ -1,20 +1,26 @@
 import { FC } from 'react';
 
-import PlanetImg from '@/assets/planet.png';
+import PlanetImg from '@/assets/images/planet.png';
+
+import SemiCircle from './SemiCircle';
+import WhiteLabel from './WhiteLabel';
 
 interface PlanetProps {
   className: string;
+  isLabel?: boolean;
 }
 
-const Planet: FC<PlanetProps> = ({ className }) => {
+const Planet: FC<PlanetProps> = ({ className, isLabel }) => {
   return (
     <div
       className={`
-      bg-[#171719]
-        rounded-full
+        w-[526px] 
+        h-[526px]
         flex
         justify-center
         items-center
+      bg-[#171719]
+        rounded-full
         ${className}
       `}
     >
@@ -53,7 +59,9 @@ const Planet: FC<PlanetProps> = ({ className }) => {
             border-[#323232]
             "
           >
-            <img src={PlanetImg} alt="Planet" className="" />
+            <img src={PlanetImg} alt="Planet" />
+            <SemiCircle />
+            {isLabel && <WhiteLabel />}
           </div>
         </div>
       </div>

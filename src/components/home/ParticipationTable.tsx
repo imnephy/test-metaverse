@@ -1,14 +1,26 @@
 import React, { FC } from 'react';
-import { Users } from './BetaTest';
+import { useNavigate } from 'react-router-dom';
+
+import { IoMdClose } from 'react-icons/io';
+
+import { User } from './BetaTest';
+
+import TableItem from './TableItem';
 
 interface ParticipationTableProps {
   className: string;
-  users: Users[];
+  users: User[];
+  currentUser: User;
+  showUser: boolean;
+  delistUserHandler: () => void;
 }
 
 const ParticipationTable: FC<ParticipationTableProps> = ({
   className,
   users,
+  currentUser,
+  showUser,
+  delistUserHandler,
 }) => {
   return (
     <div className={className}>
@@ -16,7 +28,7 @@ const ParticipationTable: FC<ParticipationTableProps> = ({
         Participation listing (enable only for participants)
       </h2>
       <table className="w-full mt-9">
-        <thead className="w-[94%]">
+        <thead className="w-[95.5%]">
           <tr className="text-left text-2xl">
             <th>Name</th>
             <th>Email</th>
@@ -32,50 +44,86 @@ const ParticipationTable: FC<ParticipationTableProps> = ({
           className="
             block
             w-full 
-            max-h-[380px] 
-            overflow-y-scroll 
+            h-[630px] 
             pr-[30px]
             font-paragraphs 
             text-sm
-
+            overflow-y-scroll 
             scrollable-tbody
           "
         >
+          {/* show current user in the table */}
+          {currentUser && showUser && (
+            <ParticipationTableRow
+              user={currentUser}
+              isCurrent
+              delistCurrUserHandler={delistUserHandler}
+            />
+          )}
+          {/* other users */}
           {users.map((user, index) => {
             return (
               <React.Fragment key={index}>
-                <tr>
-                  <td>
-                    <span className="block py-4">
-                      {user.username}
-                    </span>
-                  </td>
-                  <td>
-                    <span className="inline-block w-[195px]">
-                      <span className="block overflow-hidden text-ellipsis">
-                        {user.email}
-                      </span>
-                    </span>
-                  </td>
-                  <td>
-                    <span className="inline-block w-[195px]">
-                      <span className="block overflow-hidden text-ellipsis">
-                        {user.address}
-                      </span>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td colSpan={3}>
-                    <hr />
-                  </td>
-                </tr>
+                <ParticipationTableRow user={user} />
               </React.Fragment>
             );
           })}
         </tbody>
       </table>
     </div>
+  );
+};
+
+const ParticipationTableRow = ({
+  user,
+  isCurrent,
+  delistCurrUserHandler,
+}: {
+  user: User;
+  isCurrent?: boolean;
+  delistCurrUserHandler?: () => void;
+}) => {
+  const navigate = useNavigate();
+
+  const participantHandler = () => {
+    if (isCurrent) {
+      return;
+    }
+    navigate(`/users/${user.id}`);
+  };
+
+  return (
+    <>
+      <tr
+        className={`${
+          isCurrent ? 'text-secondary' : 'cursor-pointer'
+        }`}
+        onClick={participantHandler}
+      >
+        <td>
+          <TableItem title={user.username} />
+        </td>
+        <td>
+          <TableItem title={user.email} />
+        </td>
+        <td>
+          <TableItem title={user.address} />
+          {isCurrent && (
+            <span
+              className="inline-block pb-1 pl-8 text-white cursor-pointer"
+              onClick={delistCurrUserHandler}
+            >
+              <IoMdClose size={14} />
+            </span>
+          )}
+        </td>
+      </tr>
+      <tr>
+        <td colSpan={3}>
+          <hr />
+        </td>
+      </tr>
+    </>
   );
 };
 

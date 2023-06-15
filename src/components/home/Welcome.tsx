@@ -1,5 +1,5 @@
 import OutlineTextSpan from '../UI/OutlineTextSpan';
-import Planet from './Planet';
+import Planet from './planet/Planet';
 import RoadMapList from './RoadMapList';
 
 const Welcome = () => {
@@ -21,13 +21,12 @@ const Welcome = () => {
           </div>
           <Planet
             className="
-          absolute 
-          z-0 
-          top-[-50%] 
-          right-0  
-          w-[526px] 
-          h-[526px]
-        "
+              absolute 
+              z-0 
+              top-[-50%] 
+              right-0
+            "
+            isLabel
           />
         </div>
       </div>

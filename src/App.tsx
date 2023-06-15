@@ -1,24 +1,14 @@
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from 'react-router-dom';
-import RootLayout from './layouts/RootLayout';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
-      <Route path="*" element={<NotFound />} />
-    </Route>
-  )
-);
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster containerClassName="font-paragraphs" />
+    </>
+  );
 };
 
 export default App;

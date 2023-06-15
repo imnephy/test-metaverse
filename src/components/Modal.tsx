@@ -38,7 +38,14 @@ const Modal: FC<ModalProps> = ({
       onClick={() => setActive(false)}
     >
       <div
-        className={`flex flex-col justify-center items-center bg-[#262628] ${className}`}
+        className={`
+          flex 
+          flex-col 
+          justify-center 
+          items-center 
+        bg-[#262628] 
+          ${className}
+        `}
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="text-secondary text-4xl">{title}</h2>

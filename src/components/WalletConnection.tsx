@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import Button from './UI/Button';
 import { useEthers } from '@usedapp/core';
 
 const WalletConnection = () => {
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
   const { activateBrowserWallet, account } = useEthers();
+
+  // show modal if no connected wallet
+  useEffect(() => {
+    if (!account) setActiveModal(true);
+  }, [account]);
 
   return (
     <>
@@ -30,23 +35,25 @@ const WalletConnection = () => {
           </p>
         </div>
       )}
-      <Modal
-        className="w-[422px] h-[295px] pt-[48px] pb-[43px] px-[50px] text-center"
-        active={activeModal}
-        setActive={setActiveModal}
-        title="Metamask extension"
-        body={
-          <>
-            To work with our application, you have to install the{' '}
-            <span className="text-secondary">
-              {' '}
-              Metamask browser extension
-            </span>
-          </>
-        }
-        action={() => setActiveModal(false)}
-        actionLabel="Skip this step"
-      />
+      {!account && (
+        <Modal
+          className="w-[422px] h-[295px] pt-[48px] pb-[43px] px-[50px] text-center"
+          active={activeModal}
+          setActive={setActiveModal}
+          title="Metamask extension"
+          body={
+            <>
+              To work with our application, you have to install the{' '}
+              <span className="text-secondary">
+                {' '}
+                Metamask browser extension
+              </span>
+            </>
+          }
+          action={() => setActiveModal(false)}
+          actionLabel="Skip this step"
+        />
+      )}
     </>
   );
 };

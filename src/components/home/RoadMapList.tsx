@@ -38,10 +38,10 @@ const RoadMapListItem: FC<RoadMapListItemProps> = ({ isLast }) => {
       >
         12,345
       </p>
-      <p className="mt-[12px] text-[18px]">Lorem ipsum dolor</p>
+      <p className="mt-3 text-lg">Lorem ipsum dolor</p>
       {!isLast && (
         <div
-          className="w-full h-[0.5px] bg-[#D2C4C4] my-[8px]"
+          className="w-full h-[0.5px] bg-[#D2C4C4] my-4"
           style={{ boxShadow: '0px 1px 0px rgba(0, 0, 0, 0.1)' }}
         />
       )}

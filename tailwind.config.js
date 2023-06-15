@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['Bebas Neue', 'ui-sans-serif', 'system-ui'],
-      paragraphs: ['Avenir Next Cyr', 'ui-sans-serif', 'system-ui'],
+      paragraphs: ['Avenir', 'ui-sans-serif', 'system-ui'],
     },
     extend: {
       colors: {
