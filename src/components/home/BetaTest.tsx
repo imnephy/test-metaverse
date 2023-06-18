@@ -28,7 +28,7 @@ const BetaTest = () => {
         grid 
         grid-cols-12 
         pb-[333px] 
-        pt-[48px]
+        pt-12
       "
     >
       <div className="col-span-4">
@@ -36,7 +36,7 @@ const BetaTest = () => {
           className="
             col-start-1 
             col-end-13 
-            text-[36px] 
+            text-4xl 
             font-bold 
             text-secondary
           "
@@ -58,17 +58,17 @@ const BetaTest = () => {
         </div>
         {!user ? (
           <RegistrationForm
-            className="col-start-1 col-end-5 mt-[36px]"
+            className="col-start-1 col-end-5 mt-9"
             onSubmit={formSubmitHandler}
           />
         ) : (
           <>
             <UserInfo
-              className="col-start-1 col-end-5 mt-[36px]"
+              className="col-start-1 col-end-5 mt-9"
               user={user}
             />
             <Button
-              className="mt-[28px]"
+              className="mt-7"
               label="List me to the table"
               onClick={showUserHandler}
             />

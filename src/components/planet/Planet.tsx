@@ -59,9 +59,11 @@ const Planet: FC<PlanetProps> = ({ className, isLabel }) => {
             border-[#323232]
             "
           >
-            <img src={PlanetImg} alt="Planet" />
+            <div className="relative">
+              <img src={PlanetImg} alt="Planet" />
+            </div>
             <SemiCircle />
-            {isLabel && <WhiteLabel />}
+            {isLabel && <WhiteLabel label="q1 2022" />}
           </div>
         </div>
       </div>

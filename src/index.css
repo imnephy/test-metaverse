@@ -41,3 +41,27 @@ tbody tr {
   background-color: #e75626;
   border-radius: 10px;
 }
+
+.my-div {
+  clip-path: circle(50% at center);
+  background-color: #e75626;
+  -webkit-background-clip: text;
+  background-clip: unset;
+  -webkit-text-fill-color: transparent;
+}
+
+.split-text {
+}
+.split-text::before {
+  content: attr(data-text);
+  clip-path: circle(20.1% at 75.8% 50%);
+  margin: 0;
+  color: #e75626;
+  /* text-shadow: 0 0 1px #e75626; */
+  text-shadow: 0.08px 0.08px 0 #e75626, -0.08px -0.08px 0 #e75626,
+    0.08px -0.08px 0 #e75626, -0.08px 0.08px 0 #e75626;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}

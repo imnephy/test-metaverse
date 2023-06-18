@@ -7,9 +7,9 @@ interface RoadMapListItemProps {
 const RoadMapList = () => {
   return (
     <>
-      <p className="font-bold text-[32px] tracking-wide text-center">
+      <h2 className="font-bold text-[32px] tracking-wide text-center">
         Roadmap stats
-      </p>
+      </h2>
       <ul className="mt-[42px] last:border-b-0">
         <RoadMapListItem />
         <RoadMapListItem />

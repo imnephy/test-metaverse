@@ -12,11 +12,11 @@ const Button: FC<ButtonProps> = ({ onClick, label, className }) => {
       onClick={onClick}
       className={`
         rounded-full 
-      bg-secondary
-        px-[24px]
+        px-6
         pt-[10px]
         pb-[7px]
-        text-[18px]
+        text-lg
+      bg-secondary
       active:bg-[#BE3B10]
         ${className}
       `}

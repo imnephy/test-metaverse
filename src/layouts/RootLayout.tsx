@@ -17,7 +17,7 @@ const RootLayout = () => {
       <Header
         className="
           h-[72px] 
-          pt-[14px]
+          pt-sm
           flex
           justify-between
           items-center

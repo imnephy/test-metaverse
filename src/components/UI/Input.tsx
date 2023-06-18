@@ -38,7 +38,7 @@ const Input: FC<InputProps> = ({
           w-full
           p-[12px]
           pl-[18px]
-          text-[14px]
+          text-sm
           font-paragraphs
         focus:border-secondary
           outline-none

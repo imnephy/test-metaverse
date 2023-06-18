@@ -1,6 +1,6 @@
 import { useGetUserQuery } from '@/API/userApi';
 import { User } from '@/components/home/BetaTest';
-import Planet from '@/components/home/planet/Planet';
+import Planet from '@/components/planet/Planet';
 import UserInfo from '@/components/home/UserInfo';
 import { selectUser } from '@/slices/userSlice';
 import { FC, useEffect } from 'react';
@@ -38,9 +38,7 @@ const UserProfile: FC = () => {
     return (
       <div className="flex justify-between h-full">
         <div>
-          <h2 className="mt-[96px] text-5xl font-bold ">
-            Personal data
-          </h2>
+          <h2 className="mt-24 text-5xl font-bold ">Personal data</h2>
           <UserInfo className="mt-12" user={user} showWallet />
         </div>
         <Planet className="mr-[-256px] mt-9" />

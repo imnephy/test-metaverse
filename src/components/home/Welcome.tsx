@@ -1,5 +1,5 @@
 import OutlineTextSpan from '../UI/OutlineTextSpan';
-import Planet from './planet/Planet';
+import Planet from '../planet/Planet';
 import RoadMapList from './RoadMapList';
 
 const Welcome = () => {
@@ -8,12 +8,15 @@ const Welcome = () => {
       <div className="col-span-10">
         <div className="relative">
           <div
+            data-text="Explore your own planet in our new metaverse"
             className="
           font-bold 
           text-[120px] 
           leading-[130px]
           relative
-          z-10
+          z-[1]
+
+          split-text
         "
           >
             Explore your own planet in{' '}
@@ -22,7 +25,6 @@ const Welcome = () => {
           <Planet
             className="
               absolute 
-              z-0 
               top-[-50%] 
               right-0
             "
@@ -30,7 +32,7 @@ const Welcome = () => {
           />
         </div>
       </div>
-      <div className="col-span-4 mt-[45px] font-[16px] font-paragraphs">
+      <div className="col-span-4 mt-[45px] font-paragraphs">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
         do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco

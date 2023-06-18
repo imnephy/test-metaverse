@@ -37,7 +37,7 @@ const WalletConnection = () => {
       )}
       {!account && (
         <Modal
-          className="w-[422px] h-[295px] pt-[48px] pb-[43px] px-[50px] text-center"
+          className="w-[422px] h-[295px] pt-12 pb-11 px-[50px] text-center"
           active={activeModal}
           setActive={setActiveModal}
           title="Metamask extension"
